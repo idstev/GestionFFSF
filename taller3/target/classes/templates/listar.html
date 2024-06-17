@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Personas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .actions a {
+            margin-right: 0;
+        }
+
+        .new-person {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .new-person:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            table, th, td {
+                display: block;
+                width: 100%;
+            }
+
+            th, td {
+                box-sizing: border-box;
+                padding: 10px;
+                text-align: right;
+            }
+
+            th {
+                position: sticky;
+                top: 0;
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            th::before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+            }
+
+            td {
+                text-align: right;
+            }
+
+            td::before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                text-transform: capitalize;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Listado de personas</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Area</th>
+        <th>Computadora</th>
+        <th>Codigo</th>
+        <th>Modelo</th>
+        <th>Marca</th>
+        <th>Correo Institucional</th>
+        <th>Observaciones</th>
+        <th>Telefono</th>
+        <th>Codigo</th>
+        <th>Modelo</th>
+        <th>Marca</th>
+        <th>Chip</th>
+        <th>Correo gmail</th>
+        <th>Observaciones</th>
+        <th>Acciones</th>
+    </tr>
+    <tr th:each="persona : ${listaPersonas}">
+        <td th:text="${persona.id}" data-label="ID"></td>
+        <td th:text="${persona.nombre}" data-label="Nombre"></td>
+        <td th:text="${persona.area}" data-label="Area"></td>
+        <td th:text="${persona.computadora}" data-label="Computadora"></td>
+        <td th:text="${persona.codigocp}" data-label="Codigo"></td>
+        <td th:text="${persona.modelocp}" data-label="Modelo"></td>
+        <td th:text="${persona.marcacp}" data-label="Marca"></td>
+        <td th:text="${persona.correoinsti}" data-label="Correo Institucional"></td>
+        <td th:text="${persona.observacionescp}" data-label="Observaciones"></td>
+        <td th:text="${persona.telefono}" data-label="Telefono"></td>
+        <td th:text="${persona.codigotf}" data-label="Codigo"></td>
+        <td th:text="${persona.modelotf}" data-label="Modelo"></td>
+        <td th:text="${persona.marcatf}" data-label="Marca"></td>
+        <td th:text="${persona.chip}" data-label="Chip"></td>
+        <td th:text="${persona.correotf}" data-label="Correo gmail"></td>
+        <td th:text="${persona.observacionestf}" data-label="Observaciones"></td>
+        <td class="actions">
+            <a th:href="@{/personas/editar/{id}(id=${persona.id})}">Editar</a>
+            <a th:href="@{/personas/eliminar/{id}(id=${persona.id})}">Eliminar</a>
+            <a th:href="@{/asignacionequipos/{id}(id=${persona.id})}">Asignar Equipo</a>
+        </td>
+    </tr>
+</table>
+<a href="/personas/nueva" class="new-person">Nueva persona</a>
+</body>
+</html>

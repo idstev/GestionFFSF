@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Asignacion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            margin-top: 0;
+        }
+
+        .date {
+            float: right;
+        }
+
+
+        @media print {
+            footer {
+                display: none; /* Oculta el footer al imprimir */
+            }
+            .print-button {
+                display: none; /* Oculta el botón de impresión al imprimir */
+            }
+            h1{
+                font-size: 0.4cm;
+                text-align: center;
+            }
+            h2{
+                font-size: 0.3cm;
+            }
+            h3{
+                font-size: 0.3cm;
+            }
+            h4{
+                font-size: 0.3cm;
+            }
+            th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            font-size: 0.3cm;
+            }
+            img{
+                width: 100px;
+            }
+        }
+
+        ol,li{
+            font-size: 0.3cm;
+        }
+        
+
+        .print-button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px; /* Ajusta este valor según sea necesario */
+        }
+
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            font-size: 0.3cm;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        footer button.print-button {
+    background-color: #4CAF50; /* Color de fondo */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto */
+    padding: 15px 32px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block;
+    font-size: 16px; /* Tamaño del texto */
+    margin: 4px 2px; /* Margen exterior */
+    cursor: pointer; /* Cursor al pasar */
+    border-radius: 8px; /* Borde redondeado */
+}
+    </style>
+    <style media="print">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+         footer, .print-button {
+            display: none;
+        }
+        table {
+            font-size: 0.8em; /* Ajusta el tamaño de fuente para impresión */
+        }
+    </style>
+
+</head>
+<body>
+    <img src="https://fsinfronteras.org/wp-content/uploads/2023/02/logo-Fundacion-png.png" style="width: 150px;" alt="imagen">
+<h1>ACUERDO DE RESPONSABILIDAD DE USO DE CANALES DIGITALES Y EQUIPOS INFORMÁTICOS DE LA FUNDACIÓN</h1>
+<p>Yo <span th:text="${persona.nombre}"></span>, ACEPTO las siguientes CONDICIONES de uso de los canales y equipos informáticos de la Fundación Familia sin Fronteras, a los cuales para fines de este acuerdo se los denominará de forma general como “BIENES”; por lo tanto, me comprometo a cumplirlas, para cuyo   efecto, libre y voluntariamente, suscribo el siguiente</p>
+<h2>ACUERDO:</h2>
+<h3>1. Recibo conforme lo siguiente:</h3>
+<h4>a) Equipos:</h4>
+<h4>COMPUTADORA</h4>
+<table>
+    <tr>
+        <th>CODIGO</th>
+        <th>MODELO</th>
+        <th>MARCA</th>
+        <th>OBSERVACIONES</th>
+    </tr>
+    <tr>
+        <td th:text="${persona.codigocp}"></td>
+        <td th:text="${persona.modelocp}"></td>
+        <td th:text="${persona.marcacp}"></td>
+        <td th:text="${persona.observacionescp}"></td>
+    </tr>
+</table>
+<h4>CELULAR</h4>
+<table>
+    <tr>
+        <th>CODIGO</th>
+        <th>MODELO</th>
+        <th>MARCA</th>
+        <th>CHIP</th>
+        <th>OBSERVACIONES</th>
+    </tr>
+    <tr>
+        <td th:text="${persona.codigotf}"></td>
+        <td th:text="${persona.modelotf}"></td>
+        <td th:text="${persona.marcatf}"></td>
+        <td th:text="${persona.chip}"></td>
+        <td th:text="${persona.observacionestf}"></td>
+    </tr>
+</table>
+<h4>b) Contraseñas y accesos:</h4>
+<h4>CORREO CORPORATIVO:</h4>
+<p><span th:text="${persona.correoinsti}"></span></p>
+<ol>
+    <li>Dar buen uso a los EQUIPOS INFORMÁTICOS y CANALES DIGITALES de la Fundación Familia Sin Fronteras, que utilizaré en las instalaciones ubicadas en la Av. Amazonas y la Niña</li>
+    <li>Utilizar los “BIENES” exclusivamente con fines académicos e institucionales.</li>
+    <li>No llevar los equipos informáticos fuera de la FUNDACIÓN. </li>
+    <li>Solicitar autorización al Departamento Técnico de la Fundación para respaldo, revisión y mantenimiento de los equipos informáticos.</li>
+    <li>Mantener de forma ordenada toda la información generada para el desempeño de las funciones mediante un informe al encargado de la FUNDACIÓN cuando lo solicite. </li>
+    <li>Recibo los accesos a los canales digitales de la FUNDACIÓN, mismos que responden a usuarios y contraseñas con el objetivo de que puedan realizar las actividades encomendadas dentro del presente acuerdo y me comprometo a cumplir con los siguientes lineamientos:</li>
+    <ol type="a">
+        <li>No se realizará cambios en el usuario, contraseña o cualquier elemento que evite el ingreso a los canales digitales de la FUNDACIÓN, sin previo aviso o autorización por parte de la FUNDACIÓN.</li>
+        <li>Subir contenido NO APROBADO por escrito por parte de la FUNDACIÓN.</li>
+        <li>Atender los canales digitales como asesor designado de la FUNDACIÓN y no redireccionar los requerimientos de los usuarios fuera de los canales oficiales de atención de la FUNDACIÓN.</li>
+        <li>Atender los requerimientos de los usuarios de forma cordial, puntual y respetuosa; manteniendo el prestigio y buen nombre de la FUNDACIÓN.</li>
+        <li>Registrar y entregar al responsable del área, el detalle de accesos a las cuentas generadas a favor de los usuarios en el proceso de gestión consular u otros servicios conexos, de manera que una ausencia temporal o permanente del funcionario no comprometa el seguimiento y buena atención a los beneficiarios de la gestión institucional.</li>
+        <li>Instalar o descargar programas no autorizados por escrito.</li>
+        <li>Utilizar programas, portales o software en general que pueda comprometer la seguridad informática o el buen nombre de la FUNDACIÓN.</li>
+    </ol>
+    <li>Entregar los “BIENES” al Departamento Técnico de la Fundación de acuerdo a lo estipulado en el presente documento, en las mismas condiciones que los recibo y respaldado por un informe detallado de la información entregada.</li>
+    <li>Asumir la responsabilidad del control, cuidado y uso de los “BIENES” durante el tiempo que los utilice.</li>
+    <li>Notificar, de manera inmediata al encargado informático de la FUNDACIÓN, en caso de detectar daños en los equipos informáticos y en los canales digitales antes de utilizarlos, a fin de que este funcionario presente el informe técnico que determine si existe mal uso del equipo o si el daño,  no funcionamiento responde a la vida útil del mismo.</li>
+    <li>Asumir los costos de reparación y/o restitución de los “bienes”, en caso de daños o pérdidas producidos durante el tiempo de mi utilización, y a realizar los procesos y procedimientos que correspondan para el efectivo cumplimiento de los trámites de reparación o restitución así también en el caso de los canales digitales la FUNDACIÓN  sancionara con un valor de 5 cifras (diez mil doscientos dólares americanos) equivalente a 24 salarios básicos unificados o superior a libre decisión de la FUNDACIÓN, esto fundamentado  como un retiro mal intencionado de un bien activo digital de la FUNDACIÓN, lo cual puede ser considerado como una pérdida de toda la inversión realizada en los canales digitales.</li>
+</ol>
+<p> Para constancia de que asumo los compromisos y responsabilidades señalados en este ACUERDO y de que me comprometo a su fiel cumplimiento firmo a continuación.</p>
+<h3>Atentamente, <span class="date" id="fechaActual"></span></h3>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const fechaActual = new Date().toLocaleDateString();
+        document.getElementById("fechaActual").textContent = "Quito, " + fechaActual;
+    });
+</script>
+<br>
+<br>
+<p>_______________________</p>
+
+<h3>CI:</h3>
+<h3>COLABORADOR:<span th:text="${persona.nombre}"></span></h3>
+<footer>
+    <button class="print-button" onclick="window.print()">Imprimir</button>
+</footer>
+</body>
+</html>
